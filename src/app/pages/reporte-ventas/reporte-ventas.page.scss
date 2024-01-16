@@ -1,0 +1,64 @@
+ion-card{
+    border-radius: 18px;
+
+}
+.cardColor{
+    background-color: rgb(15, 168, 46);
+
+}
+.colorLetra{
+  color: rgb(7, 75, 21)
+}
+ion-select{
+    border-radius: 9px;
+}
+
+.carEstilo{
+    border-radius: 18px;
+    height: auto;
+}
+.semanaEstilo {
+    font-size: 17px;
+}
+.content-container {
+    display: flex;
+  }
+  .split-screen {
+    display: flex;
+  }
+  
+  .left-panel, .right-panel {
+    flex: 1; /* Hace que cada panel tome la mitad del espacio disponible */
+  }
+  
+  /* Estilos adicionales para asegurarse de que ion-select abarque la totalidad de su contenedor */
+  ion-select {
+    width: 100%;
+  }
+
+  ion-icon{
+    height: 30px;
+    width: 30px;
+    color: rgb(34, 144, 207);
+  }
+  .cardVentas{
+    margin-top: 10px;
+    background-color: #EFFBFB;
+  }
+
+  .estilosDiv{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      height:auto; 
+      margin-left: 10px; 
+      margin-right: 10px; 
+      text-align: center;
+  }
+
+  cardR{
+   text-align: center; 
+   align-items:center;
+  }
+  
+  /* Asegúrate de que el ion-card se expanda correctamente */
+ 
+  

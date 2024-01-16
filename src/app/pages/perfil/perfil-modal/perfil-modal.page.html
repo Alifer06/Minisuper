@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>perfil-modal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-input class="intento"style="margin-top:10px"  type="text" label="Nombre de usuario" placeholder="Ingresa el codigo"
+    labelPlacement="floating" fill="outline" ngModel name="usuario"></ion-input>
+  <br>
+  </form>
+
+</ion-content>

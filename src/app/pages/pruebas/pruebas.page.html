@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>pruebas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+  <!-- ventas.component.html -->
+<ion-content>
+  <ion-list>
+    <ion-item-group *ngFor="let venta of ventas">
+      <ion-item-divider>
+        <ion-label>
+          Venta #{{ venta.id_venta }} - Total: ${{ venta.total_venta | number:'1.2-2' }} - Fecha: {{ venta.fecha | date:'medium' }}
+        </ion-label>
+      </ion-item-divider>
+      <ion-item-sliding *ngFor="let detalle of venta.detalles">
+        <ion-item>
+          <ion-label>
+            <h2>{{ detalle.producto?.nombre }}</h2>
+            <p>Cantidad: {{ detalle.cantidad }}</p>
+            <p>Precio unitario: ${{ detalle.producto?.precio | number:'1.2-2' }}</p>
+            <p>Subtotal: ${{ detalle.subtotal | number:'1.2-2' }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-item-group>
+  </ion-list>
+</ion-content>
+

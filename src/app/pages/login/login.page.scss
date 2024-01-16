@@ -1,0 +1,101 @@
+ion-header {
+    --background: rgba(255, 255, 255, 0.8);
+  }
+  
+  ion-toolbar {
+    --padding-top: 5px;
+    --padding-bottom: 5px;
+  }
+  
+  ion-title {
+    text-align: center;
+    color: #327aff;
+  }
+  
+  ion-content {
+    --background: #f0f0f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  
+    .login-card {
+     
+      border-radius: 18px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      align-items: center;
+  
+      .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+  
+      .card-title {
+        color: #327aff;
+        font-weight: bold;
+        font-size: 20px;
+      }
+  
+      .input-item {
+        --padding-start: 16px;
+        --padding-end: 16px;
+        --min-height: 50px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+  
+        ion-label {
+          --color: #606266;
+        }
+  
+        ion-input {
+          --placeholder-color: #c0c4cc;
+        }
+      }
+  
+      .submit-button {
+        margin-top: 20px;
+        --background: #1c68f5;
+        --background-activated: darken(#1564f7, 5%);
+        --border-radius: 4px;
+      }
+    }
+  }
+  
+  ion-card{
+    border-radius: 16px;
+    margin-top: 110px;
+    align-items: center;
+    text-align: center;
+    
+  }
+  ion-item{
+    --background: #FFFFFF; /* White background for input fields */
+    --border-color: blue;
+    --border-radius: 20px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --placeholder-color: #BDBDBD;
+    margin-bottom: 20px;
+  }
+
+  .warning {
+    color: rgb(160, 160, 15);
+  }
+  .input-error {
+    --border-color: red;
+  }
+  .my-custom-toast {
+  --background: #ffffff; /* Fondo blanco */
+  --color: #000000; /* Texto en negro */
+  /* Añade aquí más estilos personalizados según tus preferencias */
+  --font-size: 20px;
+  }
+
+  .custom{
+    height: 100px;
+    width: 100px;
+    align-items: center;
+  }

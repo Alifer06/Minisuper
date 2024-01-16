@@ -1,0 +1,112 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Reportes de ventas</ion-title>
+    <ion-menu-button slot="start"></ion-menu-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Contenedor principal con flexbox -->
+  <div class="estilosDiv">
+    <ion-card>
+      <ion-card-content class ="colorLetra" style="font-size: 20px; ">
+        Genera los reportes de tus ventas 
+      </ion-card-content>
+    </ion-card>
+  </div>
+    <!-- Contenedor para la selección del mes y la lista de semanas -->
+    <div >
+      <ion-card class="cardColor">
+        <ion-item>
+          <ion-label>Mes</ion-label>
+          <ion-select placeholder="Selecciona un mes" (ionChange)="onMonthChange($event)">
+            <ion-select-option *ngFor="let month of months" [value]="month.name">{{ month.name }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-card>
+      <div *ngIf="selectedMonth">
+        <ion-card>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row class="ion-align-items-center ion-justify-content-center">
+                <ion-col size="auto">
+                  <h1>{{ selectedMonth.name }}</h1>
+                </ion-col>
+                <ion-col size="auto">
+                  <ion-button style="margin-left:40px" (click)="generarReporteMensual()">Generar Reporte</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+        
+        
+        <ion-card>
+          <ion-card-content>
+            <canvas id="myChart2"></canvas>
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+
+      <div class="split-screen">
+        <div class="left-panel">
+          <ion-list *ngIf="selectedMonth">
+            <ion-card *ngFor="let week of selectedMonth.weeks" (click)="selectWeek(week)" class="carEstilo">
+              <ion-card-content>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <ion-label>{{ week.name }}</ion-label>
+                    <br>
+                    <ion-note>Del {{ week.startDate }} al {{ week.endDate }}</ion-note>
+                  </div>
+                  <ion-icon name="download" (click)="stopClickPropagation($event); generarReporteSemanal()"></ion-icon>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-list>
+        </div>
+
+
+       <!-- Contenedor para las ventas de la semana seleccionada -->
+    <div class="right-panel" *ngIf="selectedWeek">
+      <!-- Lista de ventas -->
+      <ion-card class="cardVentas">
+        <ion-list *ngIf="ventasS.length > 0">
+          <ion-list-header>
+            Ventas de la semana {{ selectedWeek.name }}
+          </ion-list-header>
+          <ion-card *ngFor="let venta of ventasS" (click)="selectVenta(venta)">
+            <ion-card-content>
+              <ion-label>
+                Venta #{{ venta.id_venta }} - Total: {{ venta.total_venta | currency }}
+              </ion-label>
+            </ion-card-content>
+          </ion-card>
+        </ion-list>
+        <!-- Mensaje si no hay ventas -->
+        <div *ngIf="ventasS.length === 0">
+          <ion-card>
+            <ion-card-content>
+              <p>Ventas de la  {{selectedWeek.name}}</p>
+            <p>No hay ventas para mostrar en esta semana.</p>
+            </ion-card-content>
+          </ion-card>
+
+          
+        </div>
+      </ion-card>
+      
+    </div>
+      
+      </div>
+      
+
+      <ion-button (click)="reiniciarSemanas()" [disabled]="!selectedMonth">
+        Limpiar
+      </ion-button>
+    </div>
+   
+   
+ 
+</ion-content>

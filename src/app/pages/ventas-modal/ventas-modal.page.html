@@ -1,0 +1,17 @@
+<app-header-back></app-header-back>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Detalles de la Venta
+    </ion-list-header>
+    <ion-item *ngFor="let detalle of venta?.detalles">
+      <ion-label>
+        <h2>{{ detalle.producto?.nombre }}</h2>
+        <p>Cantidad: {{ detalle.cantidad }}</p>
+        <p>Precio unitario: ${{ detalle.producto?.precio | number:'1.2-2' }}</p>
+        <p>Subtotal: ${{ detalle.subtotal | number:'1.2-2' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

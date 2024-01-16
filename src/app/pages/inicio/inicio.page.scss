@@ -1,0 +1,28 @@
+ion-content {
+    height: 100%;
+    margin: 0;
+}
+.colorLetra{
+    color: rgb(7, 75, 21);
+
+  }
+.seccion-horizontal {
+    height: 50%; /* Cada sección ocupa la mitad de la altura */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Estilos adicionales para el texto dentro de las secciones */
+.seccion-horizontal p {
+    margin: 0;
+    font-size: 1.5em;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+ion-card{
+    border-radius: 16px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}

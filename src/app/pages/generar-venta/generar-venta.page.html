@@ -1,0 +1,69 @@
+<app-header-back [style.visibility]="content_visibility" ></app-header-back>
+  <ion-button *ngIf="cancel_button" (click)="stopScan()" expand="block" shape="round" >
+    Cancelar
+</ion-button>
+
+<ion-content [style.visibility]="content_visibility">
+    <ion-card>
+      <h1>
+        Gestión de venta
+      </h1>
+      <ion-card-content>
+          <img src="assets/img/cesta.png" class="custom"/>
+          <ion-button  mode="ios" class="primary hola" (click)="startScan()" >Escanear</ion-button>
+          <!-- Esye imput sea para ingresar el codigo en caso de que no se pueda leer el producto. -->
+          <ion-item style=" margin-left: 10px; margin-right: 10px; align-items: center; text-align: center;">
+            <ion-input  fill="outline" type="text" placeholder="Codigo de producto" [(ngModel)]="scannedResult"></ion-input>
+          </ion-item>
+          <ion-button  mode="ios" class="primary outline" (click)="agregarLista()" >Agregar Producto</ion-button>
+          <ion-button  mode="ios" class="primary" (click)="generarVenta()" >Generar Venta</ion-button>
+      </ion-card-content>
+      
+    </ion-card>
+
+
+  <h1 class="h1">Lista de Productos</h1>
+  <div>
+    <ion-card shape="round">
+        <ion-list>
+          
+          <ion-item>
+            <ion-label>Cod.</ion-label>
+            <ion-label>Nombre</ion-label>
+            <ion-label>Cant.</ion-label>
+            <ion-label> Precio</ion-label>
+            <ion-label> Total</ion-label>
+          </ion-item>
+        </ion-list>  
+    </ion-card>
+  </div>
+  <div class="lista-productos">
+    <ion-card shape="round" *ngFor="let producto of productosLista">
+
+      <ion-list >
+
+        <ion-item-sliding >
+          <ion-item>
+            <ion-label> {{producto.codigo}}</ion-label>
+            <ion-label> {{producto.nombre}}</ion-label> 
+            <ion-label> 
+              <ion-input aria-label="Cantidad" [(ngModel)]="producto.cantidad" (ionChange)="actualizarTotal(producto)"></ion-input>
+            </ion-label>
+            <ion-label> {{producto.precio}}</ion-label>
+            <ion-label> {{producto.total }}</ion-label>
+          </ion-item >
+           
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="quitarProducto(producto.id_producto)">
+              <ion-icon size="large" slot="start" name="close-circle-outline"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+    
+      </ion-list>
+    </ion-card>
+  </div>
+  <ion-card class="total">
+    <app-footer-total></app-footer-total>
+  </ion-card>
+</ion-content>

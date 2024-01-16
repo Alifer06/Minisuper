@@ -1,0 +1,102 @@
+.centro{
+    margin-top: 20px;
+}
+
+.login-container {
+    margin-top: 20px;
+    max-width: 360px; /* Adjust to your preference for a fixed-width container */
+    margin: auto;
+    border-radius: 8px;
+    background: #6fc2fa; /* This sets the background of the entire container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .login-header {
+    margin-top: 20px;
+
+    background: #ffffff; /* White background for the header */
+    width: 100%; /* Header takes the full width of the container */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px; /* Space between header and form */
+    border-top-left-radius: 8px; /* Rounded corners on the top */
+    border-top-right-radius: 8px;
+  }
+  
+  .login-header ion-avatar {
+    --ion-color-primary: #3498DB; /* Primary color for the avatar */
+    width: 80px; /* Adjust the size of the avatar */
+    height: 80px;
+    border-radius: 50%;
+    background-color: #3498DB; /* Avatar background color */
+    background-image: url('../../../assets/img/empleado.png'); /* Profile icon or image */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  ion-item {
+    --background: #FFFFFF; /* White background for input fields */
+    --border-color: transparent;
+    --border-radius: 20px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --placeholder-color: #BDBDBD;
+    margin-bottom: 20px;
+  }
+  
+  ion-input {
+    --color: #3498DB; /* Text color inside input fields */
+    --placeholder-font-style: italic;
+    --placeholder-color: #8E8E93; /* Placeholder text color */
+  }
+  
+  ion-button.login-button {
+    --background: #3498DB; /* Button background color */
+    --border-radius: 20px;
+    --color: #fff; /* Button text color */
+    margin-top: 20px; /* Space between password field and button */
+    width: 100%; /* Button takes the full width of the container */
+    height: 50px; /* Button height */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Button shadow */
+  }
+  
+  .forgot-password {
+    color: #3498DB; /* Color for the 'Forgot your password?' link */
+    font-size: 0.8em; /* Smaller font size for the link */
+    text-align: center;
+    padding: 10px 0; /* Padding to space out the link from the button */
+  }
+  
+  .social-login ion-button {
+    --background: transparent;
+    --border-radius: 50%;
+    --button-color: #3498DB; /* Social icon color */
+    --padding: 0;
+    margin: 0 5px;
+  }
+  
+  .social-login ion-icon {
+    font-size: 30px; /* Icon size */
+  }
+  
+  /* Additional styles for social media buttons */
+  .social-login {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* You may need to add custom classes or IDs for your icons */
+  /* Replace 'logo-twitter', 'logo-facebook', etc. with your actual icon classes/IDs */
+  .social-icon {
+    font-size: 30px;
+    color: #3498DB;
+    margin: 0 10px;
+  }
+  

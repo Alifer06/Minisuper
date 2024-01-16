@@ -1,0 +1,53 @@
+<app-header-back></app-header-back>
+<ion-button *ngIf="cancel_button" (click)="stopScan()" expand="block" shape="round">
+  Cancelar
+</ion-button>
+
+<ion-content class="ion-padding" [style.visibility]="content_visibility">
+  <div class="ion-text-center ion-align-items-center">
+    <div class="margen-centro">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Datos del producto</ion-card-title>
+        </ion-card-header>
+<!-- <ion-button  mode="ios" class="button1" (click)="startScan()" >Agregar Producto</ion-button> -->
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <ion-input class="intento " style="margin-top:10px"  type="text" label="Codigo del producto" placeholder="Ingresa el codigo"
+            labelPlacement="floating" fill="outline" ngModel name="codigo_producto"></ion-input>
+          <br>
+          <ion-input class="intento" type="text" label="Nombre del producto" labelPlacement="floating" fill="outline"
+            placeholder="Nombre" ngModel name="nombre"></ion-input>
+          <br>
+          <!--<ion-input class="intento" type="text" label="Codigo del producto" fill="outline" labelPlacement="floating" label="Escanea tu codigo" placeholder=" Escanea el codigo" ion="camera-outline" >
+              {{scannedResult}}
+            </ion-input> -->
+          <ion-input class="intento" type="text" label="Descripcion" label-placement="floating" fill="outline"
+            placeholder="Ingresa la descripcion" ngModel name="descripcion"></ion-input>
+          <br>
+          <ion-input class="intento" type="number" label="Precio" label-placement="floating" fill="outline"
+            placeholder="Ingresa el precio" ngModel name="precio"></ion-input>
+          <br>
+          <ion-input class="intento" type="number" label="Existencia" label-placement="floating" fill="outline"
+            placeholder="Ingresa la existencia" ngModel name="existencia"></ion-input>
+          <br>
+          <!-- Muestra las categorias de categoria service -->
+          <ion-item class="intento">
+            <ion-label>Selecciona una categoría</ion-label>
+            <ion-select [(ngModel)]="categorias" ngModel name="id_categoria">
+              <ion-select-option *ngFor="let categoria of categorias" [value]="categoria.id_categoria">{{
+                categoria.nombre }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-button class="btn1" type="submit" fill="outline" color="primary">GUARDAR</ion-button>
+          <ion-button class="btn1" (click)="cerrarModal()" fill="outline" color="primary"> CANCELAR</ion-button>
+        </form>
+      </ion-card>
+    </div>
+  </div>
+
+</ion-content>
+<app-menu-bar></app-menu-bar>
+
+
+
+

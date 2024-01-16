@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card class="login-card">
+    <ion-card-header class="card-header">
+      <ion-title class="card-title">Iniciar sesión</ion-title>
+    </ion-card-header>
+    <img src="assets/img/tienda.png" class="custom"/>
+
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <ion-item class="input-item" [class.input-error]="email.invalid && f.submitted">
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input [(ngModel)]="data.username" 
+                   name="username" 
+                   required 
+                   pattern="[a-zA-Z0-9._+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}"
+                   #email="ngModel"></ion-input>
+        
+      </ion-item>
+      <div *ngIf="email.errors?.['required'] && f.submitted" class="error">
+        <ion-icon name="warning-outline" class="warning"></ion-icon> El correo electrónico es requerido.
+      </div>
+      <div *ngIf="email.errors?.['pattern'] && f.submitted" class="error">
+        Ingresa un correo electrónico válido.
+      </div>
+      <ion-item class="input-item" [class.input-error]="email.invalid && f.submitted">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [(ngModel)]="data.password" 
+                   [type]="mostrarPassword ? 'text' : 'password'" 
+                   name="password" 
+                   minlength="8"
+                   required>
+        </ion-input>
+        <ion-icon name="eye" slot="end" (click)="togglePassword()"></ion-icon>
+        
+      </ion-item>
+      <div *ngIf="f.submitted && !data.password" class="error">
+        <ion-icon name="warning-outline" class="warning"></ion-icon>La contraseña es requerida.
+      </div>
+      <div *ngIf="data.password.length < 8" class="error">
+        <ion-icon name="warning-outline" class="warning"></ion-icon>La contraseña debe tener al menos 8 caracteres.
+      </div>
+      <ion-button type="submit" expand="block" color="primary" class="submit-button primary">
+        Iniciar sesión
+      </ion-button>
+    </form>
+    
+  </ion-card>
+</ion-content>
+

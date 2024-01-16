@@ -1,0 +1,13 @@
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .total {
+    order: 1; /* Cambia el orden para poner "Total" en la izquierda */
+  }
+  
+  .precio {
+    order: 2; /* Cambia el orden para poner el precio en la derecha */
+  }
+  
